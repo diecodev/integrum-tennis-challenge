@@ -1,0 +1,13 @@
+{
+  "id": "mig_cl9f1ba4qp2onkp3d9u0",
+  "parentID": "mig_cl9aucf09eauo4ndi91g",
+  "checksum": "1:a557537a4834ee5d10327cd970b21dc283ffb1ff8bec43ba51578a1fe7f7c355",
+  "operations": [
+    {
+      "removeColumn": {
+        "column": "enrollees",
+        "table": "tournaments"
+      }
+    }
+  ]
+}

@@ -11,11 +11,11 @@ const tables = [
     name: "tournaments",
     columns: [
       { name: "name", type: "string", unique: true },
-      { name: "enrollees", type: "vector", vector: { dimension: 30 } },
       { name: "status", type: "string", notNull: true, defaultValue: "OPEN" },
       { name: "pricing", type: "int", notNull: true, defaultValue: "50" },
       { name: "imageUrl", type: "string" },
       { name: "description", type: "text" },
+      { name: "enrollees", type: "multiple" },
     ],
   },
   {
