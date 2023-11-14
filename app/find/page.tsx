@@ -5,11 +5,17 @@ import { getXataClient } from "@root/xata";
 const xata = getXataClient();
 
 export default async function FindTournamentsPage() {
-  const { sessionClaims } = auth();
+  const { userId } = auth();
 
   // is the user is admin, then redirect to admin panel
 
-  const tournaments = await xata.db.tournaments.getMany();
+  const tournaments = await xata.db.tournaments
+    .filter({
+      $not: {
+        enrollees: { $includes: userId! },
+      },
+    })
+    .getMany();
 
   return (
     <main>
