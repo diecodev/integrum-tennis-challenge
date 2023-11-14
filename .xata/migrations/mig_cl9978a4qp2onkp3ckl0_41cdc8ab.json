@@ -1,0 +1,18 @@
+{
+  "id": "mig_cl9978a4qp2onkp3ckl0",
+  "parentID": "mig_cl9975n09eauo4ndi1p0",
+  "checksum": "1:41cdc8aba986d0465e372ae377f6880e3c0ea390bcbdf68da3c927fcfd4d7273",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "imageUrl",
+          "type": "string",
+          "notNull": true,
+          "defaultValue": "https://img.clerk.com/eyJ0eXBlIjoiZGVmYXVsdCIsImlpZCI6Imluc18yWThLQlVENVpQOG1DYWVVWGlvSzhBZEJxS3IiLCJyaWQiOiJ1c2VyXzJZOFBhbmdSY0s2clVwTk93WjJrN3FOR0ZiUiIsImluaXRpYWxzIjoiVEEifQ"
+        },
+        "table": "users"
+      }
+    }
+  ]
+}

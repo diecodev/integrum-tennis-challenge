@@ -1,0 +1,19 @@
+{
+  "id": "mig_cl984poc4l9ri3sgrno0",
+  "parentID": "mig_cl983soc4l9ri3sgrnn0",
+  "checksum": "1:4fe8fbb214b8c623adbb881f9f5cd0a060c1f758afe3b3a9c98fc47c496b6d55",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "enrollees",
+          "type": "vector",
+          "vector": {
+            "dimension": 30
+          }
+        },
+        "table": "tournaments"
+      }
+    }
+  ]
+}

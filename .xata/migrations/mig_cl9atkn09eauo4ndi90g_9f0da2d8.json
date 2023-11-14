@@ -1,0 +1,16 @@
+{
+  "id": "mig_cl9atkn09eauo4ndi90g",
+  "parentID": "mig_cl99iea4qp2onkp3clo0",
+  "checksum": "1:9f0da2d84b15084c0b77afecb9932cd7020ba5b30d19152076518e628e80d1f1",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "imageUrl",
+          "type": "string"
+        },
+        "table": "tournaments"
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Diego-D-az-s-workspace-65k1dc.us-east-1.xata.sh/db/tennis_integrum_challenge",
+  "codegen": {
+    "output": "./xata.ts"
+  }
+}

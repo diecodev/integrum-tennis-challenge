@@ -1,0 +1,11 @@
+{
+  "id": "mig_cl9831oc4l9ri3sgrnbg",
+  "checksum": "1:0cecf173857c3c29dba276a09aad2671113eae68b9e61513cfb9a31db95f10a0",
+  "operations": [
+    {
+      "addTable": {
+        "table": "tournaments"
+      }
+    }
+  ]
+}
