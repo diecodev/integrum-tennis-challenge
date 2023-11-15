@@ -1,19 +1,19 @@
 import { LogoLink } from "@root/components/general/logo";
-import { HeaderLink as HLink } from "@root/types";
+import { HeaderLink as Hlink } from "@root/types";
 import { HeaderLink } from "@root/components/general/header-link";
 
-const links: HLink[] = [
+const links: Hlink[] = [
   {
-    name: "Get Enroll",
-    href: "/find",
+    name: "Create Tournament",
+    href: "/create",
   },
   {
-    name: "My Tournaments",
-    href: "/own",
+    name: "All Tournaments",
+    href: "/all",
   },
 ];
 
-export function UsersHeader() {
+export function AdminHeader() {
   return (
     <nav>
       <ul className="flex items-center">
