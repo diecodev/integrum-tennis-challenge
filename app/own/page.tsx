@@ -1,12 +1,18 @@
 import { auth } from "@clerk/nextjs";
 import { NoDataPage } from "@root/components/general/no-data";
 import { TournamentCard } from "@root/components/user/home/tournament-card";
+import { ADMIN_EMAIL } from "@root/const";
 import { getXataClient } from "@root/xata";
+import { redirect } from "next/navigation";
 
 const xata = getXataClient();
 
 export default async function OwnPage() {
-  const { userId } = auth();
+  const { userId, sessionClaims } = auth();
+
+  if (sessionClaims?.primaryEmail !== ADMIN_EMAIL) {
+    redirect("/create");
+  }
 
   const tournaments =
     (await xata.db.tournaments
