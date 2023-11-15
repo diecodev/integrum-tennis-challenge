@@ -10,7 +10,7 @@ const xata = getXataClient();
 export default async function OwnPage() {
   const { userId, sessionClaims } = auth();
 
-  if (sessionClaims?.primaryEmail !== ADMIN_EMAIL) {
+  if (sessionClaims?.primaryEmail === ADMIN_EMAIL) {
     redirect("/create");
   }
 
