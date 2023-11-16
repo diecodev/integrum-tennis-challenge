@@ -5,9 +5,9 @@ import { redirect } from "next/navigation";
 export default function Home() {
   const { sessionClaims } = auth();
 
-  if (sessionClaims?.primaryEmail !== ADMIN_EMAIL) {
-    redirect("/find");
-  }
+  const url = sessionClaims?.primaryEmail === ADMIN_EMAIL ? "/all" : "/find";
+
+  redirect(url);
 
   return (
     <main>

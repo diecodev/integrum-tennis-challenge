@@ -5,12 +5,18 @@ import { Tournaments } from "@root/xata";
 import Image from "next/image";
 import Link from "next/link";
 
-export function TournamentCard({ data }: { data: Tournaments }) {
+export function TournamentCard({
+  data,
+  edit = false,
+}: {
+  data: Tournaments;
+  edit: boolean;
+}) {
   return (
     <article>
       <Link
         className="flex p-4 shadow-lg rounded-3xl text-sm flex-col gap-4 h-full"
-        href={`/find/${data.id}`}
+        href={edit ? `/edit/${data.id}` : `/find/${data.id}`}
       >
         <div className="rounded-3xl overflow-hidden">
           <Image
