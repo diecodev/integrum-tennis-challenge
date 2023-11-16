@@ -10,7 +10,7 @@ export function TournamentCard({
   edit = false,
 }: {
   data: Tournaments;
-  edit: boolean;
+  edit?: boolean;
 }) {
   return (
     <article>
