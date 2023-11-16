@@ -9,7 +9,7 @@ export const uploadImage = async ({ imgUrl }: { imgUrl: string }) => {
   const url = `https://api.imgbb.com/1/upload?key=${IMG_API_KEY}`;
 
   const body = new FormData();
-  body.append("image", imgUrl);
+  body.append("image", imgUrl.split(",")[1]);
 
   const res = await fetch(url, {
     method: "POST",

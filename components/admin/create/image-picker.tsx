@@ -65,7 +65,7 @@ export function Picker({ imageUrl, ...props }: Props) {
       <input
         type="text"
         name="imageUrl"
-        value={currentImage.split(",")[1]}
+        value={currentImage}
         className="hidden"
         readOnly
       />

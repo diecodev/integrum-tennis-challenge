@@ -5,6 +5,7 @@ import { Input } from "./input";
 import { Textarea } from "./textarea";
 import { Tournaments, getXataClient } from "@root/xata";
 import { redirect } from "next/navigation";
+import { STATUSES } from "@root/const";
 
 const xata = getXataClient();
 
@@ -12,9 +13,13 @@ export function TournamentForm({ data }: { data?: Tournaments }) {
   async function action(form: FormData) {
     "use server";
 
-    const imageUrl = await uploadImage({
-      imgUrl: form.get("imageUrl")!.toString(),
-    });
+    let imageUrl: string = form.get("imageUrl")!.toString();
+
+    if (!imageUrl.startsWith("https")) {
+      imageUrl = await uploadImage({
+        imgUrl: form.get("imageUrl")!.toString(),
+      });
+    }
 
     const obj: Partial<Tournaments> = {
       description: form.get("description")!.toString(),
@@ -70,7 +75,49 @@ export function TournamentForm({ data }: { data?: Tournaments }) {
         inputMode="numeric"
         required
       />
-      <CreateTournamentButton />
+      {data?.status && (
+        <fieldset className="flex flex-col-reverse">
+          <select
+            className="px-3 py-1 rounded-md border-2 outline-none focus-within:border-indigo-500 transition-colors peer"
+            name="status"
+            id="status"
+          >
+            {STATUSES.map((s) => (
+              <option key={s} value={s} selected={s === data.status}>
+                {s}
+              </option>
+            ))}
+          </select>
+          <label
+            className="font-semibold peer-focus-within:text-indigo-500 transition-colors"
+            htmlFor="status"
+          >
+            Status:
+          </label>
+        </fieldset>
+      )}
+      {data?.enrollees && (
+        <p className="text-sm flex gap-2 items-center justify-center text-slate-500 mt-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+            />
+          </svg>
+          This tournament have {data?.enrollees?.length ?? 0} players enrolled
+        </p>
+      )}
+      <CreateTournamentButton
+        title={data?.id ? "Finish Edit Mode" : "Create Tournament"}
+      />
     </form>
   );
 }

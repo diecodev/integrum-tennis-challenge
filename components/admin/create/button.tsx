@@ -2,7 +2,7 @@
 
 import { useFormStatus } from "react-dom";
 
-export function CreateTournamentButton() {
+export function CreateTournamentButton({ title }: { title: string }) {
   const { pending } = useFormStatus();
 
   return (
@@ -11,7 +11,7 @@ export function CreateTournamentButton() {
       type="submit"
       className="px-3 py-2 rounded-md bg-indigo-500 text-white"
     >
-      Create Tournament
+      {title}
     </button>
   );
 }
